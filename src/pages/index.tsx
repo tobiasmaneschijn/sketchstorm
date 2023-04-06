@@ -5,6 +5,7 @@ import { signIn, signOut, useSession } from "next-auth/react";
 
 import { api } from "~/utils/api";
 import Layout from "~/components/Layout";
+import BoardCanvas from "~/components/BoardCanvas";
 
 const Home: NextPage = () => {
   const hello = api.example.hello.useQuery({ text: "from tRPC" });
@@ -22,10 +23,7 @@ const Home: NextPage = () => {
             Sketch<span className="text-[hsl(280,100%,70%)]">Storm</span>
           </h1>
           <div className="flex flex-col items-center gap-2">
-            <p className="text-2xl text-white">
-              {hello.data ? hello.data.greeting : "Loading tRPC query..."}
-            </p>
-            <AuthShowcase />
+            <BoardCanvas boardId="undefined"/>
           </div>
         </div>
       </Layout>
